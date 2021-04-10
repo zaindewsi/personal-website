@@ -10,7 +10,8 @@ import SocialLinks from "../utils/sociallinks"
 import { ContactQuery_site_siteMetadata_contact } from "../pages/__generated__/ContactQuery"
 
 const Form = () => {
-    
+    const [ transactionState, setTransactionState] = useState(false);
+
     const [serverState, setServerState] = useState({
       submitting: false,
       status: null
@@ -28,9 +29,11 @@ const Form = () => {
       e.preventDefault();
       const form = e.target;
       setServerState({ submitting: true, status });
+      e.preventDefault()
+      setTransactionState(true);
       axios({
         method: "post",
-        url: "https://getform.io/f/350fb589-5835-422c-9e74-fed2938f89dc",
+        url: "https://getform.io/f/23e749b7-b91e-4188-8084-207bb3c51679",
         data: new FormData(form)
       })
         .then(r => {
@@ -53,20 +56,21 @@ const Form = () => {
                 </div>
                 <div className = "transition-all duration-300 py-3 lg:p-4 pb-6">
                     <div className="bg-gradient-primary p-2px">
-                        <input className="block w-full outline-none px-4 py-2 bg-bg text-color-default block w-full outline-none resize-none px-4 py-2 focus:outline-none bg-bg text-color-default" type="text" name="name" placeholder="Your Name" />
+                        <input className="block w-full outline-none resize-none px-4 py-2 focus:outline-none bg-bg text-color-default" type="text" name="name" placeholder="Your Name" />
                     </div>
                 </div>
                 <div className = "transition-all duration-300 py-3 lg:p-4 pb-6">
                     <div className="bg-gradient-primary p-2px">
-                        <input className="block w-full outline-none resize-none px-4 py-2 focus:outline-none bg-bg text-color-default" type="text" name="message" placeholder="Your Message" />
+                        <textarea className="block w-full outline-none resize-none px-4 py-2 focus:outline-none bg-bg text-color-default" name="message" placeholder="Your Message" />
                     </div>
                 </div>
                 <div className = "py-3 lg:p-4">
-                            <Button
+                          <Button
                     type="button,submit"
                     title="Send"
-                    iconRight={<IconRight />}
-                />
+                    disabled={transactionState}
+                    iconRight={<IconRight spin={transactionState}/>}
+                /> 
                 </div>
           </form>
         </div>
