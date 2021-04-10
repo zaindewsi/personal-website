@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Send, Mail, Phone, MapPin, Loader } from "react-feather"
+import axios from "axios";
 
 import { TextInput, Button } from "./ui"
 
@@ -8,173 +9,79 @@ import { beforeContactFormSubmit, contactFormSubmit } from "../../config"
 import SocialLinks from "../utils/sociallinks"
 import { ContactQuery_site_siteMetadata_contact } from "../pages/__generated__/ContactQuery"
 
-type FeedbackState = { [id: number]: { message?: string, type?: string }}
-
-const Form: React.FC<{ api: string }> = ({ api }) => {
-    const [data, changeData] = useState({
-        name: "",
-        email: "",
-        message: "",
-    })
-
-    const [feedback, setFeedback] = useState<FeedbackState>({})
-
-    const [ transactionState, setTransactionState] = useState(false);
-
-    const updateData = v => changeData({ ...data, ...v })
-
+const Form = () => {
+    
+    const [serverState, setServerState] = useState({
+      submitting: false,
+      status: null
+    });
+    const handleServerResponse = (ok, msg, form) => {
+      setServerState({
+        submitting: false,
+        status: { ok, msg }
+      });
+      if (ok) {
+        form.reset();
+      }
+    };
+    const handleOnSubmit = e => {
+      e.preventDefault();
+      const form = e.target;
+      setServerState({ submitting: true, status });
+      axios({
+        method: "post",
+        url: "https://getform.io/f/350fb589-5835-422c-9e74-fed2938f89dc",
+        data: new FormData(form)
+      })
+        .then(r => {
+          handleServerResponse(true, "Thanks!", form);
+        })
+        .catch(r => {
+          handleServerResponse(false, r.response.data.error, form);
+        });
+    };
     return (
-        <form
-            onSubmit={event => {
-                event.preventDefault()
-                setTransactionState(true);
-
-                const validate = beforeContactFormSubmit(data);
-
-                if (validate.result) {
-                    setFeedback({});
-                    contactFormSubmit(api, validate.data).then(res => {
-                        if (res.result) {
-                            setFeedback({
-                                4: {
-                                    type: "success",
-                                    message:
-                                        "Your message has been sent.",
-                                },
-                            })
-                        } else {
-                            setFeedback({
-                                4: {
-                                    message:
-                                        "There was an error sending the message. Please try again.",
-                                },
-                            })
-                        }
-                        setTransactionState(false);
-                    }).catch(err => {
-                        setFeedback({
-                            4: {
-                                message:
-                                    "There was an error sending the message. Please try again.",
-                            },
-                        })
-                        setTransactionState(false);
-                    })
-                } else {
-                    const errs = {}
-
-                    validate.errors.forEach(err => {
-                        errs[err.code] = { message: err.message }
-                    })
-
-                    setFeedback(errs)
-                    setTransactionState(false);
-                }
-            }}
-        >
-            <TextInput
-                label="Name"
-                name="name"
-                onChange={e =>
-                    updateData({
-                        name: e.target.value,
-                    })
-                }
-                footer={
-                    <FormMessage
-                        show={feedback[1] !== undefined}
-                        type="error"
-                        message={feedback[1]?.message}
-                    />
-                }
-            />
-            <TextInput
-                label="Email"
-                name="email"
-                type="email"
-                onChange={e =>
-                    updateData({
-                        email: e.target.value,
-                    })
-                }
-                footer={
-                    <FormMessage
-                        show={feedback[2] !== undefined}
-                        type="error"
-                        message={feedback[2]?.message}
-                    />
-                }
-            />
-            <TextInput
-                label="Message"
-                name="message"
-                type="textarea"
-                onChange={e =>
-                    updateData({
-                        message: e.target.value,
-                    })
-                }
-                footer={
-                    <FormMessage
-                        show={feedback[3] !== undefined}
-                        type="error"
-                        message={feedback[3]?.message}
-                    />
-                }
-            />
-            <div className="py-3 lg:p-4">
-                <FormMessage
-                    show={feedback[4] !== undefined}
-                    type={feedback[4]?.type || "error"}
-                    message={feedback[4]?.message}
-                />
-
-                <Button
+        
+    
+    <div>
+         <div className="col-md-8 mt-5">
+            <form onSubmit={handleOnSubmit}>
+                <div className = "transition-all duration-300 py-3 lg:p-4 pb-6">
+                    <div className="bg-gradient-primary p-2px">
+                        <input className="block w-full outline-none px-4 py-2 focus:outline-none bg-bg text-color-default" type="email" name="email" placeholder="Your Email" />
+                    </div>
+                </div>
+                <div className = "transition-all duration-300 py-3 lg:p-4 pb-6">
+                    <div className="bg-gradient-primary p-2px">
+                        <input className="block w-full outline-none px-4 py-2 bg-bg text-color-default block w-full outline-none resize-none px-4 py-2 focus:outline-none bg-bg text-color-default" type="text" name="name" placeholder="Your Name" />
+                    </div>
+                </div>
+                <div className = "transition-all duration-300 py-3 lg:p-4 pb-6">
+                    <div className="bg-gradient-primary p-2px">
+                        <input className="block w-full outline-none resize-none px-4 py-2 focus:outline-none bg-bg text-color-default" type="text" name="message" placeholder="Your Message" />
+                    </div>
+                </div>
+                <div className = "py-3 lg:p-4">
+                            <Button
                     type="button,submit"
                     title="Send"
-                    disabled={transactionState}
-                    iconRight={<IconRight spin={transactionState}/>}
+                    iconRight={<IconRight />}
                 />
-            </div>
-        </form>
-    )
-}
+                </div>
+          </form>
+        </div>
+      </div>  
+    
+
+     
+    );
+  };
 
 const Description: React.FC<{ data: ContactQuery_site_siteMetadata_contact }> = ({ data }) => {
     return (
         <div>
-            {data.description && (
-                <p className="text-color-default">{data.description}</p>
-            )}
+            <p className="text-lg lg:text-xl text-color-2 pt-4 lg:pt-0">Connect with me on social media</p>
             <ul className="my-4">
-                {data.mail && (
-                    <li className="flex items-center">
-                        <span className="text-secondary icon">
-                            <Mail />
-                        </span>
-                        <a className="ml-4" href={"mailto:" + data.mail}>
-                            {data.mail}
-                        </a>
-                    </li>
-                )}
-                {data.phone && (
-                    <li className="flex items-center mt-4">
-                        <span className="text-secondary icon">
-                            <Phone />
-                        </span>
-                        <a className="ml-4" href={"tel:" + data.phone}>
-                            {data.phone}
-                        </a>
-                    </li>
-                )}
-                {data.address && (
-                    <li className="flex items-start mt-4">
-                        <span className="mt-1 text-secondary icon">
-                            <MapPin />
-                        </span>
-                        <p className="whitespace-pre ml-4">{data.address}</p>
-                    </li>
-                )}
                 <li>
                     <SocialLinks />
                 </li>

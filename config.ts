@@ -1,85 +1,76 @@
 const siteMetadata = {
-    title: `Elemental`,
+    title: `Zain Dewsi`,
     siteUrl: `http://localhost`,
     capitalizeTitleOnHome: false,
-    logo: `/images/logo.png`,
-    icon: `/images/icon.png`,
-    titleImage: `/images/wall.png`,
-    ogImage: `/images/wall.png`,
-    twoColumnWall: true,
+    logo: `/images/zain bitmoji.png`,
+    icon: `/images/zain bitmoji.png`,
+    titleImage: ``,
+    ogImage: ``,
+    twoColumnWall: false,
     cookiePolicy: true,
-    introTag: `PHOTOGRAPHER | VIDEOGRAPHER`,
-    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet accumsan arcu. Proin ac consequat arcu.`,
+    introTag: `Follow me on my journey to becoming a full-stack developer`,
     about:
-        "Cras accumsan a lectus at tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus elementum dapibus dictum. Mauris auctor quam nec est tincidunt hendrerit. Donec pulvinar lobortis mauris. Cras vulputate ullamcorper ligula a rhoncus. Nunc venenatis elementum ligula in semper. Mauris malesuada purus nunc, et ultricies leo aliquam ac. Ut sit amet nunc id magna accumsan hendrerit in eget metus.",
-    author: `@_akzhy`,
+        "Welcome to my blog! I am a fullstack developer based in Toronto with a background in digital marketing. I have always been a logical thinker that loves to solve problems in the most creative way possible. I will be keeping track of my development journey and sharing some of my favourite projects along the way so make sure to check out the blog and stay connected on social media!",
+    author: `Zain Dewsi`,
     blogItemsPerPage: 10,
     portfolioItemsPerPage: 10,
     darkmode: true,
     switchTheme: true,
     navLinks: [
         {
-            name: "HOME",
+            name: "Home",
             url: "/",
         },
         {
-            name: "ABOUT",
+            name: "About",
             url: "/about",
         },
         {
-            name: "BLOG",
+            name: "Blog",
             url: "/blog",
         },
         {
-            name: "PORTFOLIO",
-            url: "/portfolio",
-        },
-        {
-            name: "CONTACT",
+            name: "Contact",
             url: "/contact",
         },
     ],
     footerLinks: [
         {
-            name: "PRIVACY POLICY",
-            url: "/privacy-policy",
-        },
-        {
             name: "GitHub",
-            url: "https://github.com/akzhy/gatsby-starter-elemental",
+            url: "https://github.com/zaindewsi",
         },
     ],
     social: [
         {
-            name: "Facebook",
-            icon: "/images/Facebook.svg",
-            url: "#",
+            name: "LinkedIn",
+            icon: "/images/linked.png",
+            url: "https://linkedin.com/in/zaindewsi",
         },
         {
-            name: "Twitter",
-            icon: "/images/Twitter.svg",
-            url: "#",
+            name: "GitHub",
+            icon: "/images/git.png",
+            url: "https://github.com/zaindewsi",
         },
         {
             name: "Instagram",
-            icon: "/images/Instagram.svg",
-            url: "#",
+            icon: "/images/insta.png",
+            url: "https://instagram.com/zaindewsi",
         },
         {
             name: "Youtube",
-            icon: "/images/Youtube.svg",
-            url: "#",
+            icon: "/images/yt.png",
+            url: "https://youtube.com/user/zaindewsi",
         },
+
     ],
     contact: {
         // leave empty ('') or false to hide form
-        api_url: "https://getform.io/f/f227a36e-096a-4c6a-9963-9f1918a85bb3",
-        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet accumsan arcu. Proin ac consequat arcu.`,
-        mail: "hi@akzhy.com",
-        phone: "000-000-0000",
-        address: "1234 \nLocation \nLocation",
+        api_url: "https://getform.io/f/350fb589-5835-422c-9e74-fed2938f89dc",
+        description: true,
+        mail: true,
+        phone: true,
+        address: true,
     },
-    disqus: "elemental-netlify-com",
 }
 
 const beforeContactFormSubmit = data => {
@@ -104,12 +95,6 @@ const beforeContactFormSubmit = data => {
         })
     }
 
-    if (data.message.trim().length < 15) {
-        errors.push({
-            code: 3,
-            message: "Enter a message with atleast 15 characters",
-        })
-    }
 
     if (errors.length > 0)
         return {
@@ -151,7 +136,6 @@ const contactFormSubmit = async (api, data) => {
 }
 
 const defaults = {
-    disqus: null,
     twoColumnWall: true,
     darkmode: false,
     switchTheme: true,

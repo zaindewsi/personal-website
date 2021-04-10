@@ -9,10 +9,10 @@
 
 export interface ContactQuery_site_siteMetadata_contact {
   api_url: string | null;
-  description: string | null;
-  mail: string | null;
-  phone: string | null;
-  address: string | null;
+  description: boolean | null;
+  mail: boolean | null;
+  phone: boolean | null;
+  address: boolean | null;
 }
 
 export interface ContactQuery_site_siteMetadata {

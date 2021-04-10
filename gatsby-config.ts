@@ -19,13 +19,6 @@ const plugins = [
     {
         resolve: `gatsby-source-filesystem`,
         options: {
-            name: `portfolio`,
-            path: `${__dirname}/contents/portfolio/`,
-        },
-    },
-    {
-        resolve: `gatsby-source-filesystem`,
-        options: {
             name: `basepages`,
             path: `${__dirname}/contents/basepages`,
         },
@@ -56,15 +49,6 @@ const plugins = [
         },
       },
 ]
-
-if (siteMetadata.disqus) {
-    plugins.push({
-        resolve: `gatsby-plugin-disqus`,
-        options: {
-            shortname: siteMetadata.disqus,
-        },
-    } as any)
-}
 
 export default {
   siteMetadata: siteMetadata,

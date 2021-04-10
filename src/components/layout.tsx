@@ -82,9 +82,11 @@ export default ({ children, front, seo, navPlaceholder=true, location }: LayoutP
             <Head data={query}/>
             <SEO {...seo} />
             <div className={`wrapper ${themes[theme].name}`}>
-                <div className="text-color-default bg-bg">
+                <div className="text-color-default bg-bg site">
                     <Navbar front={front} navPlaceholder={navPlaceholder} location={location} currentTheme={theme} switchTheme={switchTheme} themes={themes} allowThemeSwitch={query.site.siteMetadata.switchTheme}/>
-                    {children}
+                    <div className="site-content">
+                        {children}
+                    </div>
                     <Footer />
                 </div>
                 {

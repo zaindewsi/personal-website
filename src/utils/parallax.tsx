@@ -1,6 +1,5 @@
 import React from "react"
 
-// Stolen from https://github.com/rrutsche/react-parallax
 export function canUseDOM() {
   return !!(typeof window !== 'undefined' && window.document && window.document.createElement);
 }

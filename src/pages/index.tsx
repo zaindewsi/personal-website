@@ -6,22 +6,14 @@ import ScrollIntoView from "react-scroll-into-view"
 
 import Layout from "../components/layout"
 import { Button } from "../components/ui"
+import SocialLinks from "../utils/sociallinks"
 
-import ItemPortfolio from "../components/item-portfolio"
 import ItemBlog from "../components/item-blog"
 import { Form, Description as ContactDescription } from "../components/contact"
 import { IndexPageQuery } from "./__generated__/IndexPageQuery"
 
 export default ({ data, location }: PageProps<IndexPageQuery>) => {
     const siteData = data.site.siteMetadata
-
-    const portfolioList = data.portfolio.edges.map((item, _) => (
-        <ItemPortfolio
-            data={item.node}
-            key={`p-item-index-${item.node.id}`}
-            even={(_ + 1) % 2 === 0}
-        />
-    ))
 
     const blogList = data.blog.edges.map(item => (
         <ItemBlog data={item.node} key={`b-item-index-${item.node.id}`} />
@@ -39,9 +31,6 @@ export default ({ data, location }: PageProps<IndexPageQuery>) => {
         >
             <Wall data={siteData} />
             {siteData.about !== "" && <About data={siteData.about} />}
-            <div className="px-4 lg:px-0" id="portfolio">
-                {portfolioList}
-            </div>
             <Blog>{blogList}</Blog>
             <Contact data={siteData.contact} />
         </Layout>
@@ -88,16 +77,17 @@ const Wall = ({ data }) => {
                     }`}
                 >
                     <span {...spanAttrs}></span>
-                    {data.title}
+                    Hi, I'm Zain
                 </h1>
             </div>
             <p className="text-lg lg:text-xl text-color-2 pt-4 lg:pt-0">
                 {data.introTag}
             </p>
+            <SocialLinks />
             <p className="text-base lg:text-lg mt-4">{data.description}</p>
-            <ScrollIntoView selector="#portfolio">
+            <ScrollIntoView selector="#blog">
                 <Button
-                    title="SEE WORKS"
+                    title="VISIT BLOG"
                     type="button"
                     iconRight={<ArrowRight />}
                 />
@@ -156,7 +146,7 @@ const About = ({ data }) => {
 
 const Blog = ({ children }) => {
     return (
-        <div className="container mx-auto px-0">
+        <div className="container mx-auto px-0" id="blog">
             <div className="pt-20 pb-10 text-center lg:pt-40 lg:pb-20">
                 <h2 className="text-color-1 font-black text-5xl lg:text-6xl">
                     Blog
@@ -173,12 +163,15 @@ const Contact = ({ data }) => {
         <div className="container mx-auto">
             <div className="pt-20 pb-10 lg:pt-40 lg:pb-20 text-center">
                 <h2 className="text-color-1 font-black text-5xl lg:text-6xl">
-                    Contact
+                    Contact Me
                 </h2>
+                <p className="text-lg lg:text-xl text-color-2 pt-4 lg:pt-0"> Send me a message and I'll be in touch as soon as possible!</p>
             </div>
+            
             <div className="flex flex-wrap pb-40">
+            
                 {hasContactForm && (
-                    <div className="w-full lg:w-1/2 px-4 lg:pl-2 lg:pr-6">
+                    <div className="w-full lg:w-2/2 px-4 lg:pl-2 lg:pr-6">
                         <Form api={data.api_url} />
                     </div>
                 )}
@@ -221,30 +214,7 @@ export const query = graphql`
                 }
             }
         }
-        portfolio: allMdx(
-            filter: { fields: { sourceName: { eq: "portfolio" } } }
-            limit: 6
-        ) {
-            edges {
-                node {
-                    id
-                    frontmatter {
-                        title
-                        description
-                        image {
-                            childImageSharp {
-                                fluid(maxWidth: 1000) {
-                                    ...GatsbyImageSharpFluid
-                                }
-                            }
-                        }
-                    }
-                    fields {
-                        slug
-                    }
-                }
-            }
-        }
+        
         blog: allMdx(
             filter: { fields: { sourceName: { eq: "blog" } } }
             limit: 6
