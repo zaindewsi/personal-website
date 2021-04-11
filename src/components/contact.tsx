@@ -31,24 +31,13 @@ const Form = () => {
       setServerState({ submitting: true, status });
       e.preventDefault()
       setTransactionState(true);
-      axios({
-        method: "post",
-        url: "https://getform.io/f/23e749b7-b91e-4188-8084-207bb3c51679",
-        data: new FormData(form)
-      })
-        .then(r => {
-          handleServerResponse(true, "Thanks!", form);
-        })
-        .catch(r => {
-          handleServerResponse(false, r.response.data.error, form);
-        });
     };
     return (
         
     
     <div>
          <div className="col-md-8 mt-5">
-            <form onSubmit={handleOnSubmit}>
+            <form name="contact" data-netlify="true" onSubmit={handleOnSubmit} >
                 <div className = "transition-all duration-300 py-3 lg:p-4 pb-6">
                     <div className="bg-gradient-primary p-2px">
                         <input className="block w-full outline-none px-4 py-2 focus:outline-none bg-bg text-color-default" type="email" name="email" placeholder="Your Email" />
@@ -83,7 +72,7 @@ const Form = () => {
 
 const Description: React.FC<{ data: ContactQuery_site_siteMetadata_contact }> = ({ data }) => {
     return (
-        <div>
+        <div className="center">
             <p className="text-lg lg:text-xl text-color-2 pt-4 lg:pt-0">Connect with me on social media</p>
             <ul className="my-4">
                 <li>

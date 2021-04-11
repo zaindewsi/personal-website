@@ -172,12 +172,12 @@ const Contact = ({ data }) => {
             
                 {hasContactForm && (
                     <div className="w-full lg:w-2/2 px-4 lg:pl-2 lg:pr-6">
-                        <Form api={data.api_url} />
+                        <Form />
                     </div>
                 )}
                 <div
                     className={`w-full ${
-                        hasContactForm ? "lg:w-1/2" : "lg:w-2/3 mx-auto"
+                        hasContactForm ? "lg:w-2/2" : "lg:w-2/3 mx-auto"
                     } px-6 pt-8`}
                 >
                     <ContactDescription data={data} />
