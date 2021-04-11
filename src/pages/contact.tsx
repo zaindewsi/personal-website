@@ -23,14 +23,15 @@ export default ({data, location}: PageProps<ContactQuery>) => {
                     </h2>
                 </div>
                 <div className="flex flex-wrap pb-40">
-                <div className={`w-full ${hasContactForm ? 'lg:w-1/2' : 'lg:w-2/3 mx-auto'} px-6 pt-8`}>
-                        <Description data={data.site.siteMetadata.contact} />
-                    </div>
-                    {hasContactForm &&
+                {hasContactForm &&
                         <div className="w-full lg:w-2/2 px-6">
-                        <Form api={api_url}/>
+                        <Form />
                     </div>
                     }
+                <div className={`w-full ${hasContactForm ? 'lg:w-122' : 'lg:w-2/3 mx-auto'} px-6 pt-8`}>
+                        <Description data={data.site.siteMetadata.contact} />
+                    </div>
+                   
                     
                 </div>
             </div>

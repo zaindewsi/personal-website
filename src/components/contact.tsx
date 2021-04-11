@@ -18,7 +18,7 @@ const Form = () => {
     
     <div>
          <div className="col-md-8 mt-5">
-            <form method="post" netlify-honeypot="bot-field" data-netlify="true" name="contact" onSubmit={handleOnSubmit} >
+            <form method="post" netlify-honeypot="bot-field" data-netlify="true" name="contact">
             <input type="hidden" name="bot-field" />
             <input type="hidden" name="form-name" value="contact" />
                 <div className = "transition-all duration-300 py-3 lg:p-4 pb-6">
@@ -39,7 +39,7 @@ const Form = () => {
                 <div className = "py-3 lg:p-4">
                           <Button
                     type="button,submit"
-                    title="Send"
+                    title="Send Message"
                     
                 /> 
                 </div>
