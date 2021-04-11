@@ -32,12 +32,13 @@ const Form = () => {
       e.preventDefault()
       setTransactionState(true);
     };
-    return (
-        
+    return (       
     
     <div>
          <div className="col-md-8 mt-5">
-            <form name="contact" data-netlify="true" onSubmit={handleOnSubmit} >
+            <form method="post" netlify-honeypot="bot-field" data-netlify="true" name="contact" onSubmit={handleOnSubmit} >
+            <input type="hidden" name="bot-field" />
+            <input type="hidden" name="form-name" value="contact" />
                 <div className = "transition-all duration-300 py-3 lg:p-4 pb-6">
                     <div className="bg-gradient-primary p-2px">
                         <input className="block w-full outline-none px-4 py-2 focus:outline-none bg-bg text-color-default" type="email" name="email" placeholder="Your Email" />
