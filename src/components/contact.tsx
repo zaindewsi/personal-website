@@ -10,27 +10,9 @@ import SocialLinks from "../utils/sociallinks"
 import { ContactQuery_site_siteMetadata_contact } from "../pages/__generated__/ContactQuery"
 
 const Form = () => {
-    const [ transactionState, setTransactionState] = useState(false);
-
-    const [serverState, setServerState] = useState({
-      submitting: false,
-      status: null
-    });
-    const handleServerResponse = (ok, msg, form) => {
-      setServerState({
-        submitting: false,
-        status: { ok, msg }
-      });
-      if (ok) {
-        form.reset();
-      }
-    };
     const handleOnSubmit = e => {
-      e.preventDefault();
-      const form = e.target;
-      setServerState({ submitting: true, status });
-      e.preventDefault()
-      setTransactionState(true);
+        setTimeout(function(){window.location.reload();},10)
+        alert("Form submitted successfully. Thank you!");
     };
     return (       
     
@@ -58,8 +40,7 @@ const Form = () => {
                           <Button
                     type="button,submit"
                     title="Send"
-                    disabled={transactionState}
-                    iconRight={<IconRight spin={transactionState}/>}
+                    
                 /> 
                 </div>
           </form>

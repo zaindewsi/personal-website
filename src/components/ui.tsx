@@ -3,7 +3,7 @@ import { Link } from "./utils"
 
 type ButtonProps = { title: string, to?: string, type?: any, label?: string, disabled?: boolean, iconLeft?: JSX.Element, iconRight?: JSX.Element };
 const Button: React.FC<ButtonProps> = props => {
-    const { title, to, type, label, disabled } = props
+    const { title, to, type, label } = props
 
     let innerComponents = (
         <React.Fragment>
@@ -18,14 +18,6 @@ const Button: React.FC<ButtonProps> = props => {
     )
 
 
-    if(type) {
-        const b = type.split(",");
-        const t = b[1] ? b[1] : "button"
-        const dis = disabled === undefined ? false: disabled
-        if (b[0] === "button") {
-            return <button type={t} disabled={dis} className={`btn btn-primary${dis ? ' disabled' : ''}`}>{innerComponents}</button>
-        }
-    }
     return (
         <Link to={to} className="btn btn-primary" title={label || title}>
             {innerComponents}
