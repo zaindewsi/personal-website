@@ -44,7 +44,7 @@ export default function blog({ location, data }: PageProps<BlogQuery, {}>) {
                         </div>
                     </div>
                 </div>
-                <div className="lg:w-3/4 md:w-11/12 sm:w-full p-3 mx-auto mt-12 post-content">
+                <div className="lg:w-3/4 md:w-11/12 sm:w-full p-3 mx-auto post-content">
                     <MDXProvider components={{ Row, Col }}>
                         <MDXRenderer>{data.mdx.body}</MDXRenderer>
                     </MDXProvider>

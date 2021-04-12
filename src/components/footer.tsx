@@ -20,9 +20,6 @@ export default function() {
         }
     `)
 
-    const footerLinks = query.site.siteMetadata.footerLinks.map((item, _) => (
-        <ListItem data={item} key={`footer-n-l-${_}`} />
-    ))
 
     return (
         <footer className="footer bg-bgalt py-12">
@@ -35,28 +32,11 @@ export default function() {
                 <div className="text-color-2 my-3 footer-links animated-link-parent">
                     <Navlinks className="flex items-center justify-center flex-wrap" withThemeSwitch={false}/>
                 </div>
-                <div
-                    className="text-color-2 my-3"
-                >
-                    <ul>
-                    {footerLinks} 
-                    </ul>
-                </div>
                 <p className="text-color-default text-lg">
                     Copyright &copy; {query.site.siteMetadata.title}{" "}
                     {new Date().getFullYear()}
                 </p>
             </div>
         </footer>
-    )
-}
-
-const ListItem: React.FC<{ data: FooterLinksQuery_site_siteMetadata_footerLinks }> = ({ data }) => {
-    return (
-        <li className="inline-block mx-3 animated-link-parent">
-            <Link to={data.url} title={data.name}>
-                <span>{data.name}</span>
-            </Link>
-        </li>
     )
 }

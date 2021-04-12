@@ -263,7 +263,7 @@ h6 {
 }
 
 .theme-dark .post-content table tr {
-    border-bottom: 2px solid #444;
+    border-bottom: 0px solid #444;
 }
 
 .post-content table tr td,
