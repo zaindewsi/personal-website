@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from "gatsby"
 const ListItem = ({ data }) => {
     return (
         <li className="inline-block mx-2">
-            <a href={data.url} title={data.name} className="rounded-full inline-block transition-shadow duration-300 hover:shadow-2xl">
+            <a target="_blank" href={data.url} title={data.name} className="rounded-full inline-block transition-shadow duration-300 hover:shadow-2xl">
                 <img src={data.icon} alt={data.name} className="block w-16"/>
             </a>
         </li>

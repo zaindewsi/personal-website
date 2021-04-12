@@ -1,19 +1,11 @@
 import React, { useState } from "react"
-import { Send, Mail, Phone, MapPin, Loader } from "react-feather"
-import axios from "axios";
-
-import { TextInput, Button } from "./ui"
-
-import { beforeContactFormSubmit, contactFormSubmit } from "../../config"
+import { Send, Loader } from "react-feather"
+import { Button } from "./ui"
 
 import SocialLinks from "../utils/sociallinks"
 import { ContactQuery_site_siteMetadata_contact } from "../pages/__generated__/ContactQuery"
 
 const Form = () => {
-    const handleOnSubmit = e => {
-        setTimeout(function(){window.location.reload();},10)
-        alert("Form submitted successfully. Thank you!");
-    };
     return (       
     
     <div>
@@ -56,29 +48,12 @@ const Description: React.FC<{ data: ContactQuery_site_siteMetadata_contact }> = 
     return (
         <div className="center">
             <p className="text-lg lg:text-xl text-color-2 pt-4 lg:pt-0">Connect with me on social media</p>
-            <ul className="my-4">
-                <li>
-                    <SocialLinks />
-                </li>
-            </ul>
+         <SocialLinks />
+          
         </div>
     )
 }
 
-const IconRight = ({ spin = false }) => {
-    if(spin) {
-        return (
-            <span className="spin" style={{
-                display: "inline-block",
-                verticalAlign: "middle",
-                animationDuration: "5s"
-            }}>
-                <Loader />
-            </span>
-        )
-    }
-    return <Send />
-}
 
 type FormMessageProps = { show: boolean, type: string, message: string }
 const FormMessage: React.FC<FormMessageProps> = ({ show, type, message }) => {

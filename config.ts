@@ -10,7 +10,7 @@ const siteMetadata = {
     cookiePolicy: true,
     introTag: `Follow me on my journey to becoming a full-stack developer`,
     about:
-        "Welcome to my blog! I am a fullstack developer based in Toronto with a background in digital marketing. I have always been a logical thinker that loves to solve problems in the most creative way possible. I will be keeping track of my development journey and sharing some of my favourite projects along the way so make sure to check out the blog and stay connected on social media!",
+        "I am a fullstack developer based in Toronto with a background in digital marketing. I have always been a logical thinker that loves to solve problems in the most creative way possible. I will be keeping track of my development journey and sharing some of my favourite projects along the way so make sure to check out the blog and stay connected on social media!",
     author: `Zain Dewsi`,
     blogItemsPerPage: 10,
     portfolioItemsPerPage: 10,

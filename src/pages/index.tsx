@@ -79,6 +79,7 @@ const Wall = ({ data }) => {
                     <span {...spanAttrs}></span>
                     Hi, I'm Zain
                 </h1>
+                
             </div>
             <p className="text-lg lg:text-xl text-color-2 pt-4 lg:pt-0">
                 {data.introTag}
