@@ -139,7 +139,32 @@ const About = ({ data }) => {
                 <h2 className="text-color-1 font-black text-5xl lg:text-6xl">
                     About
                 </h2>
-                <p className="mt-5 text-lg">{data}</p>
+                <p className="mt-5 text-lg text-color-2">{data}</p>
+            </div>
+            <div>
+            <p className="center text-lg lg:text-xl text-color-2 pt-4 lg:pt-0">My favourite tech stack</p>
+            </div>
+            <div>
+            <ul className="mt-12">
+                <li className="inline-block mx-8 my-8">
+                    <img src="/images/react.png" width="100px"/>
+                </li>
+                <li className="inline-block mx-8 my-8">
+                    <img src="/images/node.png" width="100px"/>
+                </li>
+                <li className="inline-block mx-8 my-8">
+                    <img src="/images/js.png" width="100px"/>
+                </li>
+                <li className="inline-block mx-8 my-8">
+                    <img src="/images/mongo.png" width="100px"/>
+                </li>
+                <li className="inline-block mx-8 my-8">
+                    <img src="/images/html5.png" width="100px"/>
+                </li>
+                <li className="inline-block mx-8 my-8">
+                    <img src="/images/css.png" width="100px"/>
+                </li>
+            </ul>
             </div>
         </div>
     )
@@ -164,7 +189,7 @@ const Contact = ({ data }) => {
         <div className="container mx-auto">
             <div className="pt-20 pb-10 lg:pt-40 lg:pb-20 text-center">
                 <h2 className="text-color-1 font-black text-5xl lg:text-6xl">
-                    Contact Me
+                    Contact
                 </h2>
                 <p className="text-lg lg:text-xl text-color-2 pt-4 lg:pt-0"> Send me a message and I'll be in touch as soon as possible!</p>
             </div>

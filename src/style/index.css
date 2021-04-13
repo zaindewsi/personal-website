@@ -301,6 +301,10 @@ h6 {
     background: theme("themes.dark.medium");
 }
 
+.theme-dark h2 {
+    color: #c35fde;
+}
+
 .spin {
     animation: spin 1s infinite linear;
 }
