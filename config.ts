@@ -5,7 +5,7 @@ const siteMetadata = {
     logo: `/images/zain bitmoji.png`,
     icon: `/images/zain bitmoji.png`,
     titleImage: ``,
-    ogImage: ``,
+    ogImage: `/images/googleimage.png`,
     twoColumnWall: false,
     cookiePolicy: true,
     introTag: `Follow me on my journey to becoming a full-stack developer`,
