@@ -144,24 +144,24 @@ const About = ({ data }) => {
             <div>
             <p className="center text-lg lg:text-xl text-color-2 pt-4 lg:pt-0">My favourite tech stack</p>
             </div>
-            <div>
+            <div className="center">
             <ul className="mt-12">
-                <li className="inline-block mx-8 my-8">
+                <li className="inline-block mx-6 my-8">
                     <img src="/images/react.png" width="100px"/>
                 </li>
-                <li className="inline-block mx-8 my-8">
+                <li className="inline-block mx-6 my-8">
                     <img src="/images/node.png" width="100px"/>
                 </li>
-                <li className="inline-block mx-8 my-8">
+                <li className="inline-block mx-6 my-8">
                     <img src="/images/js.png" width="100px"/>
                 </li>
-                <li className="inline-block mx-8 my-8">
+                <li className="inline-block mx-6 my-8">
                     <img src="/images/mongo.png" width="100px"/>
                 </li>
-                <li className="inline-block mx-8 my-8">
+                <li className="inline-block mx-6 my-8">
                     <img src="/images/html5.png" width="100px"/>
                 </li>
-                <li className="inline-block mx-8 my-8">
+                <li className="inline-block mx-6 my-8">
                     <img src="/images/css.png" width="100px"/>
                 </li>
             </ul>
