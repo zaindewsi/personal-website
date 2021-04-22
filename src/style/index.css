@@ -140,6 +140,11 @@ p {
     left: 0;
 }
 
+.live-site:hover {
+    text-decoration: underline;
+    @apply text-primary;
+}
+
 .portfolio-item .image {
     clip-path: polygon(0 0, 0% 0, 0% 100%, 0% 100%);
     transition: clip-path 0.5s;
