@@ -38,7 +38,7 @@ export interface IndexPageQuery_site {
   siteMetadata: IndexPageQuery_site_siteMetadata | null;
 }
 
-export interface IndexPageQuery_blog_edges_node_frontmatter_image_childImageSharp_fluid {
+export interface IndexPageQuery_projects_edges_node_frontmatter_image_childImageSharp_fluid {
   base64: string | null;
   aspectRatio: number;
   src: string;
@@ -46,43 +46,43 @@ export interface IndexPageQuery_blog_edges_node_frontmatter_image_childImageShar
   sizes: string;
 }
 
-export interface IndexPageQuery_blog_edges_node_frontmatter_image_childImageSharp {
-  fluid: IndexPageQuery_blog_edges_node_frontmatter_image_childImageSharp_fluid | null;
+export interface IndexPageQuery_projects_edges_node_frontmatter_image_childImageSharp {
+  fluid: IndexPageQuery_projects_edges_node_frontmatter_image_childImageSharp_fluid | null;
 }
 
-export interface IndexPageQuery_blog_edges_node_frontmatter_image {
+export interface IndexPageQuery_projects_edges_node_frontmatter_image {
   /**
    * Returns the first child node of type ImageSharp or null if there are no children of given type on this node
    */
-  childImageSharp: IndexPageQuery_blog_edges_node_frontmatter_image_childImageSharp | null;
+  childImageSharp: IndexPageQuery_projects_edges_node_frontmatter_image_childImageSharp | null;
 }
 
-export interface IndexPageQuery_blog_edges_node_frontmatter {
+export interface IndexPageQuery_projects_edges_node_frontmatter {
   title: string;
   description: string | null;
   date: any | null;
-  image: IndexPageQuery_blog_edges_node_frontmatter_image | null;
+  image: IndexPageQuery_projects_edges_node_frontmatter_image | null;
 }
 
-export interface IndexPageQuery_blog_edges_node_fields {
+export interface IndexPageQuery_projects_edges_node_fields {
   slug: string | null;
 }
 
-export interface IndexPageQuery_blog_edges_node {
+export interface IndexPageQuery_projects_edges_node {
   id: string;
-  frontmatter: IndexPageQuery_blog_edges_node_frontmatter | null;
-  fields: IndexPageQuery_blog_edges_node_fields | null;
+  frontmatter: IndexPageQuery_projects_edges_node_frontmatter | null;
+  fields: IndexPageQuery_projects_edges_node_fields | null;
 }
 
-export interface IndexPageQuery_blog_edges {
-  node: IndexPageQuery_blog_edges_node;
+export interface IndexPageQuery_projects_edges {
+  node: IndexPageQuery_projects_edges_node;
 }
 
-export interface IndexPageQuery_blog {
-  edges: IndexPageQuery_blog_edges[];
+export interface IndexPageQuery_projects {
+  edges: IndexPageQuery_projects_edges[];
 }
 
 export interface IndexPageQuery {
   site: IndexPageQuery_site | null;
-  blog: IndexPageQuery_blog;
+  projects: IndexPageQuery_projects;
 }

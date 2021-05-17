@@ -15507,7 +15507,7 @@
               "defaultValue": null
             },
             {
-              "name": "blogItemsPerPage",
+              "name": "projectsItemsPerPage",
               "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
@@ -16178,7 +16178,7 @@
               "deprecationReason": null
             },
             {
-              "name": "blogItemsPerPage",
+              "name": "projectsItemsPerPage",
               "description": null,
               "args": [],
               "type": {
@@ -16722,7 +16722,7 @@
               "deprecationReason": null
             },
             {
-              "name": "siteMetadata___blogItemsPerPage",
+              "name": "siteMetadata___projectsItemsPerPage",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null

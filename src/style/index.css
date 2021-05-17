@@ -139,7 +139,9 @@ p {
 .btn-primary:focus:before {
     left: 0;
 }
-
+.live-site {
+    text-decoration: underline;
+}
 .live-site:hover {
     text-decoration: underline;
     @apply text-primary;
@@ -302,7 +304,7 @@ h6 {
     background: theme("themes.dark.medium");
 }
 
-.theme-dark .blog-item .focused {
+.theme-dark .projects-item .focused {
     background: theme("themes.dark.medium");
 }
 

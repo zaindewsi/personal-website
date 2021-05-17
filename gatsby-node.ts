@@ -39,14 +39,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
                     }
                 }
             }
-            blog: allMdx(filter: { fields: { sourceName: { eq: "blog" } } }) {
-                edges {
-                    node {
-                        id
-                    }
-                }
-            }
-            portfolio: allMdx(filter: { fields: { sourceName: { eq: "portfolio" } } }) {
+            projects: allMdx(filter: { fields: { sourceName: { eq: "projects" } } }) {
                 edges {
                     node {
                         id
@@ -55,7 +48,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
             }
             limitPost: site {
                 siteMetadata {
-                    blogItemsPerPage
+                    projectsItemsPerPage
                     portfolioItemsPerPage
                 }
             }
@@ -72,38 +65,19 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
             })
         })
 
-        const blogPosts = result.data.blog.edges
-        const blogPostsPerPage =
-            result.data.limitPost.siteMetadata.blogItemsPerPage
-        const numBlogPages = Math.ceil(blogPosts.length / blogPostsPerPage)
+        const projectsPosts = result.data.projects.edges
+        const projectsPostsPerPage =
+            result.data.limitPost.siteMetadata.projectsItemsPerPage
+        const numprojectsPages = Math.ceil(projectsPosts.length / projectsPostsPerPage)
 
-        Array.from({ length: numBlogPages }).forEach((_, i) => {
+        Array.from({ length: numprojectsPages }).forEach((_, i) => {
             createPage({
-                path: i === 0 ? `/blog` : `/blog/${i + 1}`,
-                component: path.resolve("./src/templates/blog-list.tsx"),
+                path: i === 0 ? `/projects` : `/projects/${i + 1}`,
+                component: path.resolve("./src/templates/projects-list.tsx"),
                 context: {
-                    limit: blogPostsPerPage,
-                    skip: i * blogPostsPerPage,
-                    numPages: numBlogPages,
-                    currentPage: i + 1,
-                },
-            })
-        })
-
-
-        const portfolioItems = result.data.portfolio.edges
-        const portfolioItemsPerPage =
-            result.data.limitPost.siteMetadata.portfolioItemsPerPage
-        const numPortfolioItems = Math.ceil(portfolioItems.length / portfolioItemsPerPage)
-
-        Array.from({ length: numPortfolioItems }).forEach((_, i) => {
-            createPage({
-                path: i === 0 ? `/portfolio` : `/portfolio/${i + 1}`,
-                component: path.resolve("./src/templates/portfolio-list.tsx"),
-                context: {
-                    limit: portfolioItemsPerPage,
-                    skip: i * portfolioItemsPerPage,
-                    numPages: numPortfolioItems,
+                    limit: projectsPostsPerPage,
+                    skip: i * projectsPostsPerPage,
+                    numPages: numprojectsPages,
                     currentPage: i + 1,
                 },
             })

@@ -10,9 +10,9 @@ const siteMetadata = {
     cookiePolicy: true,
     introTag: `Follow me on my journey to becoming a full-stack developer`,
     about:
-        "I am a full-stack developer based in Toronto with a background in digital marketing. I have always been a logical thinker that loves to solve problems in the most creative way possible. I will be keeping track of my development journey and sharing some of my favourite projects along the way so make sure to check out the blog and stay connected on social media!",
+        "I am a full-stack developer based in Toronto with a background in digital marketing. I have always been a logical thinker that loves to solve problems in the most creative way possible. I will be keeping track of my development journey and sharing some of my favourite projects along the way so make sure to check out the projects and stay connected on social media!",
     author: `Zain Dewsi`,
-    blogItemsPerPage: 10,
+    projectsItemsPerPage: 10,
     portfolioItemsPerPage: 10,
     darkmode: true,
     switchTheme: true,
@@ -26,8 +26,8 @@ const siteMetadata = {
             url: "/about",
         },
         {
-            name: "Blog",
-            url: "/blog",
+            name: "Projects",
+            url: "/projects",
         },
         {
             name: "Contact",

@@ -3,16 +3,16 @@ import { Link } from "gatsby"
 import Img from "gatsby-image"
 
 import { Calendar } from "react-feather"
-import { BlogListQuery_allMdx_edges_node } from "../templates/__generated__/BlogListQuery"
-import { IndexPageQuery_blog_edges_node } from "../pages/__generated__/IndexPageQuery"
+import { projectsListQuery_allMdx_edges_node } from "../templates/__generated__/projectsListQuery"
+import { IndexPageQuery_projects_edges_node } from "../pages/__generated__/IndexPageQuery"
 
-type ItemBlogProps = BlogListQuery_allMdx_edges_node | IndexPageQuery_blog_edges_node
-export const ItemBlog: React.FC<{ data: ItemBlogProps}> = ({ data }) => {
+type ItemprojectsProps = projectsListQuery_allMdx_edges_node | IndexPageQuery_projects_edges_node
+export const Itemprojects: React.FC<{ data: ItemprojectsProps}> = ({ data }) => {
 
     const [focused, changeFocused] = useState(true);
 
     return (
-        <div className="blog-item w-full md:w-1/2 lg:w-1/3 p-4">
+        <div className="projects-item w-full md:w-1/2 lg:w-1/3 p-4">
             <div className={`transition-all duration-300 shadow-2xl hover:shadow shadow ${focused && 'focused'}`}>
                 <Link to={data.fields.slug} title={data.frontmatter.title} onFocus={() => changeFocused(false)} onBlur={() => changeFocused(false)}>
                     <div className="image">
@@ -40,4 +40,4 @@ export const ItemBlog: React.FC<{ data: ItemBlogProps}> = ({ data }) => {
     )
 }
 
-export default ItemBlog;
+export default Itemprojects;

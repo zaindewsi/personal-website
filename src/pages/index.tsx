@@ -8,15 +8,15 @@ import Layout from "../components/layout"
 import { Button } from "../components/ui"
 import SocialLinks from "../utils/sociallinks"
 
-import ItemBlog from "../components/item-blog"
+import Itemprojects from "../components/item-projects"
 import { Form, Description as ContactDescription } from "../components/contact"
 import { IndexPageQuery } from "./__generated__/IndexPageQuery"
 
 export default ({ data, location }: PageProps<IndexPageQuery>) => {
     const siteData = data.site.siteMetadata
 
-    const blogList = data.blog.edges.map(item => (
-        <ItemBlog data={item.node} key={`b-item-index-${item.node.id}`} />
+    const projectsList = data.projects.edges.map(item => (
+        <Itemprojects data={item.node} key={`b-item-index-${item.node.id}`} />
     ))
 
     return (
@@ -31,7 +31,7 @@ export default ({ data, location }: PageProps<IndexPageQuery>) => {
         >
             <Wall data={siteData} />
             {siteData.about !== "" && <About data={siteData.about} />}
-            <Blog>{blogList}</Blog>
+            <Projects>{projectsList}</Projects>
             <Contact data={siteData.contact} />
         </Layout>
     )
@@ -86,9 +86,9 @@ const Wall = ({ data }) => {
             </p>
             <SocialLinks />
             <p className="text-base lg:text-lg mt-4">{data.description}</p>
-            <ScrollIntoView selector="#blog">
+            <ScrollIntoView selector="#projects">
                 <Button
-                    title="VISIT BLOG"
+                    title="VIEW PROJECTS"
                     type="button"
                     iconRight={<ArrowRight />}
                 />
@@ -170,12 +170,12 @@ const About = ({ data }) => {
     )
 }
 
-const Blog = ({ children }) => {
+const Projects = ({ children }) => {
     return (
-        <div className="container mx-auto px-0" id="blog">
+        <div className="container mx-auto px-0" id="projects">
             <div className="pt-20 pb-10 text-center lg:pt-40 lg:pb-20">
                 <h2 className="text-color-1 font-black text-5xl lg:text-6xl">
-                    Blog
+                    Projects
                 </h2>
             </div>
             <div className="flex flex-wrap">{children}</div>
@@ -241,8 +241,8 @@ export const query = graphql`
             }
         }
         
-        blog: allMdx(
-            filter: { fields: { sourceName: { eq: "blog" } } }
+        projects: allMdx(
+            filter: { fields: { sourceName: { eq: "projects" } } }
             limit: 6
         ) {
             edges {
