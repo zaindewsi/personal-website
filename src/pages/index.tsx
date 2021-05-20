@@ -85,7 +85,7 @@ const Wall = ({ data }) => {
             </p>
             <SocialLinks />
             <p className="text-base lg:text-lg mt-4">{data.description}</p>
-            <a href="https://zaindewsi.com/projects">
+            <a href="/projects">
                 <Button
                     title="VIEW PROJECTS"
                     type="button"
