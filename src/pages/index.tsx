@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react"
 import { graphql, PageProps } from "gatsby"
 
 import { ArrowRight } from "react-feather"
-import ScrollIntoView from "react-scroll-into-view"
 
 import Layout from "../components/layout"
 import { Button } from "../components/ui"
@@ -86,13 +85,13 @@ const Wall = ({ data }) => {
             </p>
             <SocialLinks />
             <p className="text-base lg:text-lg mt-4">{data.description}</p>
-            <ScrollIntoView selector="#projects">
+            <a href="https://zaindewsi.com/projects">
                 <Button
                     title="VIEW PROJECTS"
                     type="button"
                     iconRight={<ArrowRight />}
                 />
-            </ScrollIntoView>
+            </a>
         </React.Fragment>
     )
 
