@@ -10,7 +10,7 @@ const siteMetadata = {
     cookiePolicy: true,
     introTag: `Full-Stack Software Developer`,
     about:
-        "I am a full-stack software developer based in Toronto with a background in digital marketing. I have always been a logical thinker that loves to solve problems in the most creative way possible. I will be keeping track of my development journey and sharing some of my favourite projects along the way so make sure to check out the projects and stay connected on social media!",
+        "I am a full-stack software developer based in Toronto with a background in digital and strategic marketing. I have always been a logical thinker that loves to solve problems in the most creative way possible. I strive to leverage technology to help businesses grow and make a positive impact on the world. I started this blog to track of my development journey and sharing some of my favourite projects along the way so make sure to check out the projects and stay connected on social media!",
     author: `Zain Dewsi`,
     projectsItemsPerPage: 10,
     portfolioItemsPerPage: 10,
