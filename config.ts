@@ -8,9 +8,9 @@ const siteMetadata = {
     ogImage: `/images/googleimage.png`,
     twoColumnWall: false,
     cookiePolicy: true,
-    introTag: `Follow me on my journey to becoming a full-stack developer`,
+    introTag: `Full-Stack Software Developer`,
     about:
-        "I am a full-stack developer based in Toronto with a background in digital marketing. I have always been a logical thinker that loves to solve problems in the most creative way possible. I will be keeping track of my development journey and sharing some of my favourite projects along the way so make sure to check out the projects and stay connected on social media!",
+        "I am a full-stack software developer based in Toronto with a background in digital marketing. I have always been a logical thinker that loves to solve problems in the most creative way possible. I will be keeping track of my development journey and sharing some of my favourite projects along the way so make sure to check out the projects and stay connected on social media!",
     author: `Zain Dewsi`,
     projectsItemsPerPage: 10,
     portfolioItemsPerPage: 10,
@@ -61,7 +61,6 @@ const siteMetadata = {
             icon: "/images/yt.png",
             url: "https://youtube.com/user/zaindewsi",
         },
-
     ],
     contact: {
         // leave empty ('') or false to hide form
@@ -94,7 +93,6 @@ const beforeContactFormSubmit = data => {
             message: "Enter a valid email address",
         })
     }
-
 
     if (errors.length > 0)
         return {
@@ -140,7 +138,7 @@ const defaults = {
     darkmode: false,
     switchTheme: true,
     capitalizeTitleOnHome: true,
-    cookiePolicy: false
+    cookiePolicy: false,
 }
 
 Object.keys(defaults).forEach(item => {
